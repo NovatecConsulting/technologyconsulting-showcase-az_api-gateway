@@ -1,4 +1,7 @@
-
+data "azurerm_public_ip" "example" {
+  name                = azurerm_public_ip.example.name
+  resource_group_name = azurerm_resource_group.resourceGroup.name
+}
 
 resource "azurerm_virtual_network" "containernetwork" {
   name                = "container-network"
@@ -107,7 +110,7 @@ resource "azurerm_container_group" "frontend" {
   ip_address_type     = "public"
   os_type             = "Linux"
   restart_policy      = "Never"
-
+  depends_on = [azurerm_application_gateway.network]
   container {
     name   = "frontend"
     image  = "novatec/technologyconsulting-containerexcerciseapp-todoui:v0.1"
@@ -119,7 +122,7 @@ resource "azurerm_container_group" "frontend" {
       protocol = "TCP"
     }
     environment_variables = {
-        BACKEND_HOST="TODOIPOFBACKENDPUBLIC"
+        BACKEND_HOST=data.azurerm_public_ip.example.ip_address
         BACKEND_PORT="8080"
    
     }

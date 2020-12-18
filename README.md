@@ -9,3 +9,6 @@ TF create the following through azurerm provider:
 - tbd 
 
 You can execute this on your local device by calling `createInfrastructureFromLocal.sh`. You have to installed the AZ cli and logged in.  
+APGW is very slow:
+
+https://feedback.azure.com/forums/281804-azure-resource-manager/suggestions/19119910-application-gateway-management-operations-are-agon?page=6&per_page=20 

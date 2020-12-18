@@ -3,7 +3,7 @@ set -xe
 VAULT_NAME="tc-showcase-common-vault"
 TF_VAR_storage_account_name="tcshowcasecommonstorage"
 TF_VAR_subscription_name="Practice-Area-TC-Dev"
-TF_VAR_environment="apigatewayiha"
+TF_VAR_environment="apigatewayih"
 TF_VAR_tfversion="0.14.2"
 
 #get the ARM connections details   
@@ -27,3 +27,4 @@ export TF_ACTION="apply" # plan/apply/destroy
 ./createInfrastructure.sh
 
 rm -rf .terraform
+rm -f .terraform.lock.hcl 
