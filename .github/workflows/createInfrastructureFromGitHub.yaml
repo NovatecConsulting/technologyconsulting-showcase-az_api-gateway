@@ -14,7 +14,7 @@ on:
       environmentName: 
         description: Desired name of your environment
         required: true
-        default: 'apigatewayiha'
+        default: 'apigatewayih'
 
 jobs:
   build:
